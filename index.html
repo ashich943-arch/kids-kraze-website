@@ -121,7 +121,7 @@ header.nav.scrolled{border-bottom-color:var(--line);background:rgba(8,8,12,.9)}
 
 /* card w/ gradient border */
 .gborder{position:relative;border-radius:var(--radius);background:var(--card);border:1px solid var(--line)}
-.gborder::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,79,163,.5),transparent 40%,transparent 60%,rgba(46,157,247,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s}
+.gborder::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;padding:1px;background:linear-gradient(140deg,rgba(255,79,163,.5),transparent 40%,transparent 60%,rgba(46,157,247,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s}
 .gborder:hover::before{opacity:1}
 
 /* ABOUT */
