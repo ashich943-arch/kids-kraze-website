@@ -280,6 +280,30 @@ footer.foot{background:#050508;border-top:1px solid var(--line);padding:60px 0 1
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;scroll-behavior:auto!important}.reveal{opacity:1;transform:none}}
 
+/* PASS CARD SHOWCASE */
+.card-show{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center;margin-bottom:34px}
+.card-show img{width:100%;height:auto;border-radius:18px;box-shadow:0 26px 60px -20px rgba(255,79,163,.45);transform:rotate(-1.5deg);transition:transform .3s}
+.card-show:hover img{transform:rotate(0) scale(1.02)}
+.card-show-text h3{font-size:clamp(1.5rem,3.4vw,2.2rem);margin-bottom:.7rem}
+.card-show-text p{color:#d5d5e2;font-size:1.02rem;margin:0 0 1.1rem}
+.card-perks{list-style:none;padding:0;margin:0;display:grid;gap:.6rem}
+.card-perks li{position:relative;padding-left:1.6rem;color:#e4e4ee;font-size:.95rem}
+.card-perks li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+@media(max-width:820px){.card-show{grid-template-columns:1fr;gap:22px}}
+
+/* VISIT PASSES */
+.pass-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pass{position:relative;background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);padding:1.8rem 1.4rem;text-align:center;display:flex;flex-direction:column;transition:transform .22s}
+.pass:hover{transform:translateY(-6px)}
+.pass-best{border-color:rgba(255,201,60,.5);box-shadow:0 20px 50px -22px rgba(255,201,60,.4)}
+.pass-tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--yellow);color:#3a2c00;font-family:"Baloo 2";font-weight:800;font-size:.72rem;padding:.3rem .8rem;border-radius:999px;white-space:nowrap}
+.pass-name{font-family:"Fredoka";font-weight:700;font-size:1.3rem}
+.pass-visits{font-family:"Baloo 2";font-weight:600;font-size:.9rem;color:var(--muted);margin-top:.1rem}
+.pass-price{font-family:"Fredoka";font-weight:700;font-size:2.1rem;margin:.5rem 0 .15rem}
+.pass-each{font-size:.85rem;color:var(--green);margin-bottom:1.2rem}
+.pass .btn{width:100%;justify-content:center;margin-top:auto}
+@media(max-width:820px){.pass-grid{grid-template-columns:1fr}}
+
 /* ENTRY TICKETS */
 .tix-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .tix{position:relative;background:var(--card);border:1px solid var(--line-2);border-radius:var(--radius);padding:1.6rem 1.2rem;text-align:center;transition:transform .22s}
@@ -363,7 +387,7 @@ footer.foot{background:#050508;border-top:1px solid var(--line);padding:60px 0 1
   <div class="nav-inner">
     <a href="#home" class="brand" aria-label="Kids Kraze home"><img src="assets/logo.webp" width="700" height="448" fetchpriority="high" alt="Kids Kraze – Adventure Playland logo" /></a>
     <nav class="nav-links" aria-label="Primary">
-      <a href="#about">About</a><a href="#attractions">Attractions</a><a href="#parties">Parties</a><a href="#prices">Tickets</a><a href="#cafe">Café</a><a href="#gallery">Gallery</a><a href="#visit">Visit</a>
+      <a href="#about">About</a><a href="#attractions">Attractions</a><a href="#parties">Parties</a><a href="#prices">Tickets</a><a href="#passes">Passes</a><a href="#cafe">Café</a><a href="#gallery">Gallery</a><a href="#visit">Visit</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-wa" href="https://wa.me/923037881100?text=Hi%20Kids%20Kraze!%20I'd%20like%20to%20book%20a%20visit." target="_blank" rel="noopener">
@@ -375,7 +399,7 @@ footer.foot{background:#050508;border-top:1px solid var(--line);padding:60px 0 1
   </div>
 </header>
 <div class="mobile-menu" id="mmenu">
-  <a href="#about">About</a><a href="#attractions">Attractions</a><a href="#parties">Parties &amp; Events</a><a href="#prices">Tickets</a><a href="#cafe">Café</a><a href="#gallery">Gallery</a><a href="#visit">Visit Us</a>
+  <a href="#about">About</a><a href="#attractions">Attractions</a><a href="#parties">Parties &amp; Events</a><a href="#prices">Tickets</a><a href="#passes">Passes</a><a href="#cafe">Café</a><a href="#gallery">Gallery</a><a href="#visit">Visit Us</a>
 </div>
 
 <!-- HERO -->
@@ -536,6 +560,57 @@ footer.foot{background:#050508;border-top:1px solid var(--line);padding:60px 0 1
 </section>
 
 <!-- FOOD -->
+<!-- VISIT PASSES -->
+<section class="sec" id="passes">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Come Back For Less</span>
+      <h2>Adventure <span class="c-pink">Passes</span></h2>
+      <p>Buy a bundle of visits and save on every trip. Perfect for regulars.</p>
+    </div>
+    <div class="card-show reveal">
+      <img src="assets/pass-card.webp" width="1040" height="657" loading="lazy" decoding="async"
+           alt="Kids Kraze Adventure Pass membership card" />
+      <div class="card-show-text">
+        <h3>Your own <span class="c-yellow">Adventure Pass</span> card</h3>
+        <p>Every pass comes with a real membership card. Show it at the counter and we'll mark
+           your visit — no cash, no queue, no paperwork.</p>
+        <ul class="card-perks">
+          <li>Visits tracked for you — never lose count</li>
+          <li>Works for any child in your family</li>
+          <li>Lost it? We'll find you by phone number</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pass-grid reveal" id="passGrid">
+      <div class="pass" data-pass="visits3">
+        <div class="pass-name c-blue">Starter Pass</div>
+        <div class="pass-visits">3 visits</div>
+        <div class="pass-price">Rs 1,350</div>
+        <div class="pass-each">Rs 450 a visit · save 10%</div>
+        <button type="button" class="btn btn-ghost js-pass" data-pkgname="Starter Pass">Get this pass</button>
+      </div>
+      <div class="pass pass-best" data-pass="visits10">
+        <div class="pass-tag">Best Value</div>
+        <div class="pass-name c-yellow">Champion Pass</div>
+        <div class="pass-visits">10 visits</div>
+        <div class="pass-price">Rs 3,800</div>
+        <div class="pass-each">Rs 380 a visit · save 24%</div>
+        <button type="button" class="btn btn-party js-pass" data-pkgname="Champion Pass">Get this pass</button>
+      </div>
+      <div class="pass" data-pass="visits5">
+        <div class="pass-name c-green">Family Pass</div>
+        <div class="pass-visits">5 visits</div>
+        <div class="pass-price">Rs 2,100</div>
+        <div class="pass-each">Rs 420 a visit · save 16%</div>
+        <button type="button" class="btn btn-ghost js-pass" data-pkgname="Family Pass">Get this pass</button>
+      </div>
+    </div>
+    <p class="tix-note">Passes are collected at the counter. Not transferable, no cash value.</p>
+  </div>
+</section>
+
 <!-- ENTRY PRICES -->
 <section class="sec" id="prices">
   <div class="wrap">
@@ -669,7 +744,7 @@ footer.foot{background:#050508;border-top:1px solid var(--line);padding:60px 0 1
   <div class="wrap">
     <div class="foot-grid">
       <div><img class="logo" src="assets/logo.webp" width="700" height="448" fetchpriority="high" alt="Kids Kraze – Adventure Playland" /><p>Chishtian's ultimate indoor adventure playland for kids aged 3–12. Play, explore, discover — where fun comes alive!</p></div>
-      <div><h5>Explore</h5><ul><li><a href="#about">About</a></li><li><a href="#attractions">Attractions</a></li><li><a href="#parties">Parties &amp; Events</a></li><li><a href="#prices">Tickets</a><a href="#cafe">Café</a></li><li><a href="#gallery">Gallery</a></li></ul></div>
+      <div><h5>Explore</h5><ul><li><a href="#about">About</a></li><li><a href="#attractions">Attractions</a></li><li><a href="#parties">Parties &amp; Events</a></li><li><a href="#prices">Tickets</a><a href="#passes">Passes</a><a href="#cafe">Café</a></li><li><a href="#gallery">Gallery</a></li></ul></div>
       <div><h5>Get in Touch</h5><ul><li><a href="tel:+923037881100">0303 7881100</a></li><li><a href="mailto:kidskraze.pk@gmail.com">kidskraze.pk@gmail.com</a></li><li><a href="https://wa.me/923037881100" target="_blank" rel="noopener">WhatsApp us</a></li><li><a href="https://www.kidskraze.pk" target="_blank" rel="noopener">www.kidskraze.pk</a></li></ul></div>
     </div>
     <div class="foot-bottom">© <span id="yr"></span> <b>Kids Kraze – Adventure Playland</b>. All rights reserved.</div>
@@ -847,6 +922,30 @@ addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; i
         }).join("");
       }
 
+      // visit passes — names, prices and visit counts all come from the admin,
+      // so a plan renamed or repriced there can't leave the website advertising
+      // something the counter won't honour.
+      var plans = Array.isArray(st.membershipPlans) ? st.membershipPlans : [];
+      plans.forEach(function (pl) {
+        var card = document.querySelector('[data-pass="' + pl.id + '"]');
+        if (!card) return;
+        var nameEl = card.querySelector(".pass-name");
+        var visEl = card.querySelector(".pass-visits");
+        var priceEl = card.querySelector(".pass-price");
+        var eachEl = card.querySelector(".pass-each");
+        var btn = card.querySelector(".js-pass");
+        if (nameEl && pl.label) nameEl.textContent = pl.label;
+        if (visEl && pl.visits) visEl.textContent = pl.visits + " visits";
+        if (priceEl && Number.isFinite(pl.price)) priceEl.textContent = money(pl.price);
+        if (btn && pl.label) btn.setAttribute("data-pkgname", pl.label);
+        if (eachEl && pl.visits > 0 && Number.isFinite(pl.price)) {
+          var each = Math.round(pl.price / pl.visits);
+          var full = (st.ticketPrices && st.ticketPrices.hour1) || 500;
+          var save = full > 0 ? Math.round((1 - each / full) * 100) : 0;
+          eachEl.textContent = money(each) + " a visit" + (save > 0 ? " \u00b7 save " + save + "%" : "");
+        }
+      });
+
       // entry tickets
       var tp = st.ticketPrices || {};
       Object.keys(tp).forEach(function (id) {
@@ -993,6 +1092,16 @@ addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; i
   document.getElementById("bmx").addEventListener("click", closeBooking);
   bm.addEventListener("click", function(e){ if(e.target===bm) closeBooking(); });
   addEventListener("keydown", function(e){ if(e.key==="Escape" && bm.classList.contains("open")) closeBooking(); });
+
+  // Passes are collected and paid for at the counter, so the button starts a
+  // WhatsApp conversation rather than pretending to take payment online.
+  document.querySelectorAll(".js-pass").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var name = b.getAttribute("data-pkgname") || "a pass";
+      var txt = "Hi Kids Kraze! I'd like to get the " + name + ". Please tell me how to collect it.";
+      window.open("https://wa.me/923037881100?text=" + encodeURIComponent(txt), "_blank", "noopener");
+    });
+  });
 
   // open buttons
   document.querySelectorAll(".js-book").forEach(function(b){
