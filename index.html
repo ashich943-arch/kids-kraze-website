@@ -885,6 +885,23 @@ addEventListener('keydown', e => { if (!lb.classList.contains('open')) return; i
   }
   applyLivePrices();
 
+  // Keep an already-open page in step with the admin. A visitor who loads the
+  // site gets current prices anyway; this covers the tab left open on the
+  // counter screen, or a parent comparing packages while the owner edits them.
+  if (sb) {
+    try {
+      sb.channel("kk_settings_live")
+        .on(
+          "postgres_changes",
+          { event: "*", schema: "public", table: "collections", filter: "name=eq.settings" },
+          function () { applyLivePrices(); }
+        )
+        .subscribe();
+    } catch (e) {
+      /* realtime unavailable — the page still has correct prices from load */
+    }
+  }
+
   // ---- Party slots: built from the park's hours, and checked for availability
   // ------------------------------------------------------------------------
   // Slots mirror the admin panel: fixed 2-hour blocks across opening hours, so
